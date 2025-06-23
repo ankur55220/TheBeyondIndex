@@ -3,6 +3,6 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-	site: 'https://thebeyondindex.netlify.app',
-	integrations: [mdx(), sitemap()],
+  site: 'https://thebeyondindex.netlify.app',
+  integrations: [mdx(), sitemap({ sitemapFilename: 'sitemap.xml' })],
 });
