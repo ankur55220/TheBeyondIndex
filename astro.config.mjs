@@ -4,5 +4,5 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://thebeyondindex.netlify.app',
-  integrations: [mdx(), sitemap({ sitemapFilename: 'sitemap.xml' })],
+  integrations: [mdx(), sitemap()],
 });
