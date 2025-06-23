@@ -1,0 +1,85 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const mysteries = await getCollection('mysteries');
+  return mysteries.map((mystery) => ({
+    params: { slug: mystery.id.replace(/\.(md|mdx)$/, '') },
+    props: mystery,
+  }));
+}
+
+type Props = CollectionEntry<'mysteries'>;
+
+const mystery = Astro.props;
+const { Content } = await render(mystery);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`${mystery.data.title} | Mysteries`} description={mystery.data.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <article>
+        <h1>{mystery.data.title}</h1>
+        <time datetime={mystery.data.pubDate.toISOString()}>
+          {mystery.data.pubDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+        
+        {mystery.data.heroImage && (
+          <img 
+            src={mystery.data.heroImage.src} 
+            alt="" 
+            width={mystery.data.heroImage.width}
+            height={mystery.data.heroImage.height}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        
+        <div class="content">
+          <Content />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  article {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  time {
+    color: var(--theme-text-light);
+    display: block;
+    margin-bottom: 2rem;
+  }
+  
+  :global(h2) {
+    margin-top: 3rem;
+  }
+  
+  :global(p) {
+    line-height: 1.6;
+    margin: 1.5rem 0;
+  }
+</style>

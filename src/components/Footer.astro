@@ -1,0 +1,36 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="footer-container">
+		<p>&copy; {today.getFullYear()} The beyond index. All rights reserved.</p>
+	</div>
+</footer>
+<style>
+	footer {
+		width: 100%;
+		padding: 2rem 0;
+		background: #0f172a;
+		color: #f8fafc;
+		text-align: center;
+		margin-top: 3rem;
+	}
+
+	.footer-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	footer p {
+		margin: 0;
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 768px) {
+		footer {
+			padding: 1.5rem 0;
+		}
+	}
+</style>
