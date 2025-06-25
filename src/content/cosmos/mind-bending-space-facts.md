@@ -84,7 +84,7 @@ You are made of the same particles that existed at the very beginning of the uni
 
 ## 9. 🌑 The Endless Night: The Unfathomable Future of the Universe
 
-Imagine a stopwatch that started ticking with the Big Bang, 13.8 billion years ago. We are here, right now, in the merest blink of an eye in cosmic time. But what about the vast, unimaginable stretch of time yet to come? You've captured its essence perfectly: on this scale, every number you can think of, no matter how big, effectively rounds to zero.
+Imagine a stopwatch that started ticking with the Big Bang, 13.8 billion years ago. We are here, right now, in the merest blink of an eye in cosmic time. But what about the vast, unimaginable stretch of time yet to come? On this scale, every number you can think of, no matter how big, effectively rounds to zero.
 
 Our present epoch, vibrant with stars, galaxies, and life, is a fleeting golden age. In the grand cosmic timeline, it’s a temporary flicker before an almost eternal darkness. Every star, from the smallest red dwarf to the most colossal blue giant, will eventually exhaust its nuclear fuel. The last stars, tiny red dwarfs, are predicted to flicker out many trillions of years from now. After that, the universe will become a much colder, darker, and emptier place.
 
