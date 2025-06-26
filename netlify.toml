@@ -4,30 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--version"
 
 [context.production.environment]
   NODE_ENV = "production"
 
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-
-# Asset optimization settings
-[build.processing]
-  skip_processing = true
-  [build.processing.html]
-    pretty_urls = true
-  [build.processing.css]
-    bundle = true
-    minify = true
-  [build.processing.js]
-    bundle = true
-    minify = true
-  [build.processing.images]
-    compress = true
-  [build.processing.skip_processing]
-    paths = ["/images/*"]
-
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -35,4 +16,3 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com;"
