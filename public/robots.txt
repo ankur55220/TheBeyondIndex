@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thebeyondindex.netlify.app/sitemap.xml
