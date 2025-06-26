@@ -29,13 +29,7 @@ import logo from '../assets/logo.png';
       </a>
     </div>
     
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-      <span class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </button>
+    <!-- Mobile menu button removed -->
 
     <div class="nav-wrapper">
       <nav class="main-nav">
@@ -73,6 +67,8 @@ import logo from '../assets/logo.png';
   
   <div class="header-accent"></div>
 </header>
+
+<!-- JavaScript for mobile menu removed -->
 
 <style>
   @keyframes float {
@@ -349,66 +345,45 @@ import logo from '../assets/logo.png';
     .header-container {
       padding: 0 1.5rem;
       min-height: 80px;
+      flex-direction: column;
+      align-items: center;
     }
     
     .nav-wrapper {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 85%;
-      max-width: 350px;
-      height: 100vh;
-      background: linear-gradient(135deg, rgba(11, 15, 27, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
-      backdrop-filter: blur(15px);
-      padding: 6rem 2rem 2rem;
-      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 1000;
-      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      width: 100%;
+      padding: 1rem 0;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      align-items: flex-start;
-    }
-    
-    .mobile-menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      width: 44px;
-      height: 44px;
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      z-index: 1001;
-      transition: all 0.3s ease;
     }
     
-    .mobile-menu-toggle:hover {
-      background: rgba(139, 92, 246, 0.2);
-      transform: translateY(-2px);
-    }
+    /* Nav wrapper active state removed as we don't need it anymore */
     
-    .mobile-menu-active .nav-wrapper {
-      right: 0;
-    }
+    /* Mobile menu toggle styles removed */
+    
+    /* Mobile menu toggle hover styles removed */
+    
+    /* Mobile menu active styles removed */
 
     .nav-list {
-      flex-direction: column;
-      gap: 0.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
       width: 100%;
     }
 
     .nav-item {
-      width: 100%;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: none;
     }
 
     .nav-link {
-      font-size: 1.1rem;
-      padding: 1rem 0.5rem;
+      font-size: 1rem;
+      padding: 0.75rem 0.5rem;
       border-radius: 6px;
-      width: 100%;
+      text-align: center;
     }
     
     .nav-link::before {
@@ -439,18 +414,7 @@ import logo from '../assets/logo.png';
       transform: translateY(-2px);
     }
 
-    /* Mobile menu active state */
-    .mobile-menu-active .menu-icon span:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
-    }
-    
-    .mobile-menu-active .menu-icon span:nth-child(2) {
-      opacity: 0;
-    }
-    
-    .mobile-menu-active .menu-icon span:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
-    }
+    /* Mobile menu active state styles removed */
   }
 
   /* Theme toggle button */

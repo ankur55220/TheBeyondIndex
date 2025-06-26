@@ -3,9 +3,11 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import enigma from '../../assets/enigma.png'
+import path from 'path';
 
 interface HeroImage {
   src: string;
@@ -21,7 +23,7 @@ interface MysteryPost {
     title: string;
     description: string;
     pubDate: Date;
-    heroImage?: string;
+    heroImage?: HeroImage;
     updatedDate?: Date;
   };
 }
@@ -51,11 +53,11 @@ const mysteries = (allPosts as unknown as MysteryPost[]).sort(
             <li class={index === 0 ? 'first-mystery' : ''}>
               <a href={`/mysteries/${slug}`}>
                 {mystery.data.heroImage && (
-                  <img
+                  <img 
+                    src={mystery.data.heroImage.src} 
+                    alt="" 
                     width={index === 0 ? 960 : 460}
                     height={index === 0 ? 400 : 200}
-                    src={enigma.src}
-                    alt=""
                     loading={index === 0 ? 'eager' : 'lazy'}
                     decoding="async"
                   />

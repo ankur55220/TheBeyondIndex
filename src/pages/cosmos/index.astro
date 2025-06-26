@@ -21,7 +21,7 @@ interface CosmosPost {
     title: string;
     description: string;
     pubDate: Date;
-    heroImage?: string
+    heroImage?: HeroImage
   }
 }
 
@@ -56,7 +56,7 @@ console.log('Cosmos posts:', cosmos);
                   <img
                     width={index === 0 ? 960 : 460}
                     height={index === 0 ? 400 : 200}
-                    src={space.src}
+                    src={cosmos.data.heroImage.src}
                     alt=""
                     loading={index === 0 ? 'eager' : 'lazy'}
                     decoding="async"
