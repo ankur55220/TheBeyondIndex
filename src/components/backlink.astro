@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+
+const { collection, currentSlug } = Astro.props;
+
+// Get all posts from the same collection
+const allPosts = await getCollection(collection);
+
+// Filter out the current post
+const filteredPosts = allPosts.filter((post: any) => {
+  const slug = post.slug || post.id.split('/').pop()?.replace(/\.md$/, '');
+  return slug !== currentSlug;
+});
+
+// Shuffle the array using Fisher-Yates algorithm
+const shuffledPosts = [...filteredPosts].sort(() => Math.random() - 0.5);
+
+// Get up to 3 random related posts
+const relatedPosts = shuffledPosts.slice(0, 3);
+
+// Function to get post URL
+const getPostUrl = (post: any) => {
+  const slug = post.slug || post.id.split('/').pop()?.replace(/\.md$/, '');
+  return `/${collection}/${slug}`;
+};
+---
+
+{relatedPosts.length > 0 && (
+  <div class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 relative">
+        <span class="relative">
+          More {collection === 'mysteries' ? 'Mysteries' : 'Cosmic Wonders'}
+        </span>
+      </h2>
+      
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {relatedPosts.map((post: any) => {
+          const url = getPostUrl(post);
+          const title = post.data.title;
+          const pubDate = post.data.pubDate ? new Date(post.data.pubDate) : null;
+          
+          return (
+            <article class="group relative overflow-hidden rounded-xl bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800">
+              <a href={url} class="block h-full" aria-label={`Read more about ${title}`}>
+                {post.data.heroImage && (
+                  <div class="h-40 overflow-hidden">
+                    <img 
+                      src={post.data.heroImage} 
+                      alt="" 
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <div class="p-5">
+                  {pubDate && (
+                    <time 
+                      datetime={pubDate.toISOString()}
+                      class="text-xs font-medium text-indigo-600 dark:text-indigo-400 mb-2 inline-block"
+                    >
+                      {pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </time>
+                  )}
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    {title}
+                  </h3>
+                  {post.data.description && (
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+                      {post.data.description}
+                    </p>
+                  )}
+                 
+                </div>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+a{
+    text-decoration: none;
+    color: inherit;
+}
+  </style>
