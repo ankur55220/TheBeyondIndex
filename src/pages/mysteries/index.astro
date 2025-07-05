@@ -3,11 +3,9 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getImage } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import enigma from '../../assets/enigma.png'
-import path from 'path';
+
 
 interface HeroImage {
   src: string;
@@ -47,11 +45,9 @@ const mysteries = (allPosts as unknown as MysteryPost[]).sort(
       
       <ul class="mysteries-list">
         {mysteries.map((mystery, index) => {
-          // Get the file name without extension
-          const slug = mystery.id.replace(/\.(md|mdx)$/, '');
           return (
             <li class={index === 0 ? 'first-mystery' : ''}>
-              <a href={`/mysteries/${slug}`}>
+              <a href={`/mysteries/${mystery.id}`}>
                 {mystery.data.heroImage && (
                   <img 
                     src={mystery.data.heroImage.src} 

@@ -8,7 +8,7 @@ import Backlink from '../../components/backlink.astro';
 export async function getStaticPaths() {
   const mysteries = await getCollection('mysteries');
   return mysteries.map((mystery) => ({
-    params: { slug: mystery.id.replace(/\.(md|mdx)$/, '') },
+    params: { slug: mystery.id },
     props: mystery,
   }));
 }
