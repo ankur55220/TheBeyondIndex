@@ -25,7 +25,7 @@ const { Content } = await render(cosmos);
     <BaseHead title={`${cosmos.data.title} | Cosmo`} description={cosmos.data.description} />
     {/* Debug canonical URL */}
     {(() => {
-      const canonicalUrl = new URL(Astro.url.pathname + '/', Astro.site).toString();
+      const canonicalUrl = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', Astro.site).toString();
       console.log('Canonical URL:', canonicalUrl);
       return <link rel="canonical" href={canonicalUrl} />;
     })()}
@@ -53,7 +53,7 @@ const { Content } = await render(cosmos);
       "keywords": cosmos.data.tags ? cosmos.data.tags.join(", ") : undefined,
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": new URL(Astro.url.pathname + '/', Astro.site).toString()
+        "@id": new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', Astro.site).toString()
       }
     })} />
     

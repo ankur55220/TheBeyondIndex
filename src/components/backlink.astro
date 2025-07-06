@@ -22,7 +22,7 @@ const relatedPosts = shuffledPosts.slice(0, 3);
 const getPostUrl = (post: any) => {
   // Extract just the filename without extension
   const slug = post.id.replace(/\.(md|mdx)$/, '');
-  return `/${collection}/${slug}/`;
+  return `/${collection}/${slug}`;
 };
 ---
 

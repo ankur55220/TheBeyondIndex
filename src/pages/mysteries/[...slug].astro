@@ -23,7 +23,7 @@ const { Content } = await render(mystery);
 <html lang="en">
   <head>
     <BaseHead title={`${mystery.data.title} | Mysteries`} description={mystery.data.description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname + '/', Astro.site).toString()} />
+    <link rel="canonical" href={new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', Astro.site).toString()} />
     
     {/* Schema.org markup for Google */}
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -48,7 +48,7 @@ const { Content } = await render(mystery);
       "keywords": mystery.data.tags ? mystery.data.tags.join(", ") : undefined,
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": new URL(Astro.url.pathname + '/', Astro.site).toString()
+        "@id": new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/', Astro.site).toString()
       }
     })} />
     

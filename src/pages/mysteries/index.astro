@@ -52,7 +52,7 @@ console.log('Mysteries posts:', mysteries);
           return (
             <li class={index === 0 ? 'first-mystery' : ''}>
               
-              <a href={`/mysteries/${slug}/`}>
+              <a href={`/mysteries/${slug}`}>
                 {mystery.data.heroImage && (
                   <img 
                     src={mystery.data.heroImage.src} 
