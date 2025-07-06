@@ -1,8 +1,8 @@
 ---
-title: "Echoes Across the Pacific: The Amelia Earhart Mystery, Then and Now"
+title: "Amelia Earhart :Echoes Across the Pacific, Then and Now"
 description: "From crackling radio transmissions to new sonar scans beneath the Pacific, Amelia Earhart’s disappearance remains one of the most enduring modern mysteries. What really happened—and are we any closer to knowing?"
 tags: ["Mystery", "Amelia Earhart", "Unsolved", "Exploration", "History","Discovery","plane","expedition","radio","pacific","ocean","disappearance","mystery","legend"]
-heroImage: "../../assets/amelia.jpg"
+heroImage: {"src":"../../assets/amelia.jpg"}
 pubDate: "2025-07-02"
 ---
 

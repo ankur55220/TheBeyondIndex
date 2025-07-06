@@ -23,6 +23,7 @@ interface MysteryPost {
     pubDate: Date;
     heroImage?: HeroImage;
     updatedDate?: Date;
+    tags?: string[];
   };
 }
 
@@ -30,6 +31,8 @@ const allPosts = await getCollection('mysteries');
 const mysteries = (allPosts as unknown as MysteryPost[]).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+console.log('Mysteries posts:', mysteries);
 ---
 
 <!doctype html>
@@ -45,9 +48,11 @@ const mysteries = (allPosts as unknown as MysteryPost[]).sort(
       
       <ul class="mysteries-list">
         {mysteries.map((mystery, index) => {
+          const slug = mystery.id.replace(/\.(md|mdx)$/, '');
           return (
             <li class={index === 0 ? 'first-mystery' : ''}>
-              <a href={`/mysteries/${mystery.id}`}>
+              
+              <a href={`/mysteries/${slug}/`}>
                 {mystery.data.heroImage && (
                   <img 
                     src={mystery.data.heroImage.src} 

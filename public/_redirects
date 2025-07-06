@@ -1,0 +1,19 @@
+# Redirect URLs without trailing slashes to versions with trailing slashes
+/cosmos/* /cosmos/:splat/ 301!  
+/mysteries/* /mysteries/:splat/ 301!
+
+# Redirect old file extensions (if any URLs still have .md)
+/cosmos/*.md /cosmos/:splat/ 301
+/mysteries/*.md /mysteries/:splat/ 301
+
+# Ensure consistent casing (redirect uppercase to lowercase)
+/Cosmos/* /cosmos/:splat/ 301
+/Mysteries/* /mysteries/:splat/ 301
+
+# Handle potential index redirects
+/cosmos/index /cosmos/ 301
+/mysteries/index /mysteries/ 301
+
+# Ensure homepage has trailing slash
+/index.html / 301
+/ /index.html 200

@@ -23,12 +23,53 @@ const { Content } = await render(cosmos);
 <html lang="en">
   <head>
     <BaseHead title={`${cosmos.data.title} | Cosmo`} description={cosmos.data.description} />
+    {/* Debug canonical URL */}
+    {(() => {
+      const canonicalUrl = new URL(Astro.url.pathname + '/', Astro.site).toString();
+      console.log('Canonical URL:', canonicalUrl);
+      return <link rel="canonical" href={canonicalUrl} />;
+    })()}
+    
+    {/* Schema.org markup for Google */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": cosmos.data.title,
+      "description": cosmos.data.description,
+      "image": cosmos.data.heroImage ? new URL(cosmos.data.heroImage.src, Astro.site).toString() : undefined,
+      "datePublished": cosmos.data.pubDate.toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "The Beyond Index"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Beyond Index",
+        "logo": {
+          "@type": "ImageObject",
+          "url": new URL("/favicon.svg", Astro.site).toString()
+        }
+      },
+      "keywords": cosmos.data.tags ? cosmos.data.tags.join(", ") : undefined,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": new URL(Astro.url.pathname + '/', Astro.site).toString()
+      }
+    })} />
+    
   </head>
   <body>
     <Header />
     <main>
       <article>
         <h1>{cosmos.data.title}</h1>
+        {cosmos.data.tags && (
+          <div class="tags">
+            {cosmos.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
         <time datetime={cosmos.data.pubDate.toISOString()}>
           {cosmos.data.pubDate.toLocaleDateString('en-US', {
             year: 'numeric',
@@ -50,7 +91,7 @@ const { Content } = await render(cosmos);
         
         <div class="content">
           <Content />
-          <Backlink collection="cosmos" currentSlug={cosmos.id}/>
+          <Backlink collection="cosmos" currentSlug={cosmos.id.replace(/\.(md|mdx)$/, '')}/>
 
         </div>
       </article>
@@ -84,5 +125,22 @@ const { Content } = await render(cosmos);
   :global(p) {
     line-height: 1.6;
     margin: 1.5rem 0;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  
+  .tag {
+    font-size: 0.85rem;
+    background-color: #f0f0f0;
+    color: #777;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    display: inline-block;
   }
 </style>

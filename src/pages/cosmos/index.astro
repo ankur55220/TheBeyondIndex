@@ -9,9 +9,9 @@ import space from '../../assets/space.jpg'
 
 interface HeroImage {
   src: string;
-  width: number;
-  height: number;
-  format: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
+  width?: number;
+  height?: number;
+  format?: 'png' | 'jpg' | 'jpeg' | 'tiff' | 'webp' | 'gif' | 'svg' | 'avif';
 }
 
 interface CosmosPost {
@@ -51,7 +51,7 @@ console.log('Cosmos posts:', cosmos);
           const slug = cosmos.id.replace(/\.(md|mdx)$/, '');
           return (
             <li class={index === 0 ? 'first-mystery' : ''}>
-              <a href={`/cosmos/${slug}`}>
+              <a href={`/cosmos/${slug}/`}>
                 {cosmos.data.heroImage && (
                   <img
                     width={index === 0 ? 960 : 460}

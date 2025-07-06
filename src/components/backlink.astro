@@ -8,8 +8,8 @@ const allPosts = await getCollection(collection);
 
 // Filter out the current post
 const filteredPosts = allPosts.filter((post: any) => {
-  const slug = post.slug || post.id.split('/').pop()?.replace(/\.md$/, '');
-  return slug !== currentSlug;
+  // Clean the current post ID to match our format
+  return post.id.replace(/\.(md|mdx)$/, '') !== currentSlug;
 });
 
 // Shuffle the array using Fisher-Yates algorithm
@@ -20,8 +20,9 @@ const relatedPosts = shuffledPosts.slice(0, 3);
 
 // Function to get post URL
 const getPostUrl = (post: any) => {
-  const slug = post.slug || post.id.split('/').pop()?.replace(/\.md$/, '');
-  return `/${collection}/${slug}`;
+  // Extract just the filename without extension
+  const slug = post.id.replace(/\.(md|mdx)$/, '');
+  return `/${collection}/${slug}/`;
 };
 ---
 
@@ -46,7 +47,7 @@ const getPostUrl = (post: any) => {
                 {post.data.heroImage && (
                   <div class="h-40 overflow-hidden">
                     <img 
-                      src={post.data.heroImage} 
+                      src={post.data.heroImage.src} 
                       alt="" 
                       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"

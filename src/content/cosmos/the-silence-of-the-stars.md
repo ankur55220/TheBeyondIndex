@@ -2,7 +2,7 @@
 title: "The Silence in the Stars: 6 Chilling Possibilities Behind the Fermi Paradox"
 description: "If intelligent life should be common in the universe, why haven’t we seen any signs of it? From cosmic filters to simulation theory, here are the most haunting answers to the Fermi Paradox."
 tags: ["Fermi Paradox", "Extraterrestrial Life", "Mystery", "Cosmos", "Simulation Theory", "Alien Life", "Space", "Astrophysics", "Alien Civilization","universe","space","stars"]
-heroImage: "../../assets/fermi-paradox.jpg"
+heroImage: {"src":"../../assets/fermi-paradox.jpg"}
 pubDate: "2025-07-06"
 ---
 

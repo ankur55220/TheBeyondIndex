@@ -2,7 +2,7 @@
 title: "The Universe Questioning Itself: What If Consciousness Is the Point?"
 description: "Is human awareness just a biological glitch, or the universe becoming aware of itself? From Asimov to the Anthropic Principle, this is a journey through one of the deepest questions we may never answer."
 tags: ["Consciousness", "Philosophy", "Asimov", "Existence", "Mysteries", "Anthropic Principle","Space","Cosmos","Universe","Existence"]
-heroImage: "../../assets/conscious.jpg"
+heroImage: {"src":"../../assets/conscious.jpg"}
 pubDate: "2025-06-28"
 ---
 

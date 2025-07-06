@@ -3,7 +3,7 @@ title: "Beyond Belief: 10 Space Facts That Shatter Your Reality "
 pubDate: "2025-06-23"
 description: "Space is weirder than science fiction. Here are 10 space facts that sound fake—but are completely real."
 author: "Ankur Verma"
-heroImage: "../../assets/space.jpg"
+heroImage: {"src":"../../assets/space.jpg"}
 tags: ["Space", "Mysteries", "Astronomy", "Weird Facts"]
 ---
 

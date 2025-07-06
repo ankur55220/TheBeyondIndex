@@ -2,7 +2,7 @@
 title: '1935: The Year a Top RAF Officer Saw the Future '
 description: 'A seasoned pilot, a sudden storm, and a vision of an airfield that defied the present. Sir Victor Goddard 1935 encounter was dismissed as a hallucination, until 1939 when the future he described unfolded exactly as he had seen it.'
 pubDate: "2025-06-23"
-heroImage: '../../assets/enigma.png'
+heroImage: {"src":"../../assets/enigma.png"}
 tags: ["TimeSlip","VictorGoddard", "RAF", "Mystery", "Unexplained" ,"History", "Aviation", "Precognition" ,"WWII"]
 
 ---

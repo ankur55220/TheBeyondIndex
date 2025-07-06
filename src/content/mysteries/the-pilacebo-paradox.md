@@ -2,7 +2,7 @@
 title: "The Placebo Paradox: How Your Mind Heals What Medicine Can’t"
 description: "Can sugar pills cure pain? Can belief rewrite biology? Explore the awe-inspiring mystery of the placebo effect and what it reveals about the hidden powers of the human body."
 tags: ["Mind", "Mysteries", "Placebo Effect", "Consciousness"]
-heroImage: "../../assets/placebo.jpg"
+heroImage: {"src":"../../assets/placebo.jpg"}
 pubDate: "2025-06-25"
 ---
 

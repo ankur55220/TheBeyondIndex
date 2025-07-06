@@ -2,7 +2,7 @@
 title: "The Symmetry Paradox: Why Is the Universe So Perfectly 'Just Right'?"
 description: "From fine-tuned constants to missing antimatter and the invisible influence of dark matter, this post explores the unsettling question: Why does the universe obey such perfect patterns?"
 tags: ["Cosmology", "Symmetry", "Fine-Tuning", "Dark Matter", "Physics","Space","Cosmos","Universe","Existence","fascinating","mysteries","questions"]
-heroImage: "../../assets/symmetry.jpg"
+heroImage: {"src":"../../assets/symmetry.jpg"}
 pubDate: "2025-07-02"
 ---
 
